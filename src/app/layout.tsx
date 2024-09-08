@@ -29,12 +29,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-gray-50 dark:bg-slate-800 ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`bg-gray-50 dark:bg-[#1b1b1f] flex flex-col min-h-[100vh] ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <Header/>
-          {children}
-          <Footer/>
+          <div className="max-w-[640px] md:max-w-[1536px] ml-auto mr-auto md:pl-20 md:pr-20">
+            <Header/>
+            {children}
+            <Footer/>
+          </div>
         </Providers>
       </body>
     </html>

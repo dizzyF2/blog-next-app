@@ -3,6 +3,8 @@ import Link from "next/link";
 
 
 function AuthStatus() {
+    
+    //temp
     const status: string = "notLoggedIn";
     return (
         <>

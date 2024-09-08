@@ -26,8 +26,8 @@ function ThemeSwitch() {
     return (
         <button className="flex items-center justify-between gap-2 rounded-2xl w-12 bg-gray-200 dark:bg-gray-600 border border-gray-400 hover:border-red-400 cursor-pointer">
             {
-                resolvedTheme === 'dark' ? (<div className='flex flex-col w-full' onClick={()=> setTheme('light')}><Moon color="white" size={20} className="self-end bg-black rounded-full p-1"/></div>)   
-                : (<div className='flex flex-col w-full' onClick={()=> setTheme('dark')}><Sun color="gray" size={20}  className="self-start bg-white rounded-full p-1"/></div>) 
+                resolvedTheme === 'dark' ? (<div className='flex flex-col w-full px-[1px]' onClick={()=> setTheme('light')}><Sun color="gray" size={20}  className="self-start bg-white rounded-full p-1"/></div>) 
+                : (<div className='flex flex-col w-full px-[1px]' onClick={()=> setTheme('dark')}><Moon color="white" size={20} className="self-end bg-black rounded-full p-1"/></div>)   
             }
         </button>
     )
