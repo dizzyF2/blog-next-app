@@ -1,18 +1,27 @@
+'use client'
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 
-
-function AuthStatus() {
+interface IProps{
+    onclick?(): void
+}
+function AuthStatus({onclick}: IProps) {
     
-    //temp
-    const status: string = "notLoggedIn";
+    
+    const {status} = useSession();
+    
+    const handleLogOut = ()=>{
+        signOut()
+        onclick
+    }
     return (
         <>
             {
-                status === "notLoggedIn" ? (
-                    <Link href={"/"}>Login</Link>
+                status === "unauthenticated" ? (
+                    <Link href={"/Login"}>Login</Link>
                 ) : (
-                    <Link href={"/"}>logout</Link>
+                    <Link href={"/"} onClick={handleLogOut}>Logout</Link>
                 )
             }
         </>
