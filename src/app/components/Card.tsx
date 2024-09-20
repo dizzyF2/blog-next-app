@@ -2,6 +2,8 @@ import Image from "next/image"
 import image1 from "../../../public/blogImage.jpg"
 import Link from "next/link"
 
+
+
 function Card() {
     return (
         <div className="flex items-center gap-[50px] mb-[50px]">
@@ -15,7 +17,7 @@ function Card() {
                 </div>
                 <Link href={"/"}>
                     <h1 className="font-bold text-2xl">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, ab!
                     </h1>
                 </Link>
                 <p className="text-[13px] font-light text-gray-600 dark:text-gray-400">
