@@ -14,14 +14,7 @@ function MenuList() {
             </>
             <>
                 <h1 className="text-[28px] capitalize font-bold">Categories</h1>
-                <Categories withImage={false} className="p-[10px_25px] rounded-xl text-[12px] text-white"/>
-            </>
-            <>
-                <h1 className="text-[28px] capitalize font-bold">editors pick</h1>
-                <MenuPost withImage={true}/>
-                <MenuPost withImage={true}/>
-                <MenuPost withImage={true}/>
-                <MenuPost withImage={true}/>
+                <Categories withImage={false} className="min-w-24 p-[10px_25px] rounded-xl text-[12px] text-center"/>
             </>
         </div>
     )

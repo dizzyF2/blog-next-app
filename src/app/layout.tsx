@@ -35,9 +35,11 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Providers>
-            <Header/>
-            <div className="max-w-[640px] md:max-w-[1536px] ml-auto mr-auto pl-20 pr-20">
-              {children}
+            <div className="m-0 flex flex-col justify-between">
+              <Header/>
+              <div className="main-Wrapper min-h-[45vh]">
+                {children}
+              </div>
               <Footer/>
             </div>
           </Providers>
