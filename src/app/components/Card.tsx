@@ -20,7 +20,7 @@ function Card({key, item}:{key: number, item: Item}) {
                     src={item.img} 
                     alt={"Post Image"}
                     fill 
-                    className="object-contain" // Change from object-cover to object-contain
+                    className="object-contain"
                 />
             </div>
             }
@@ -35,9 +35,10 @@ function Card({key, item}:{key: number, item: Item}) {
                         {item.title}
                     </h1>
                 </Link>
-                <p className="text-[13px] font-light text-gray-600 dark:text-gray-400">
-                    {item.desc.substring(0, 50)}
-                </p>
+                <div 
+                    className="text-[13px] font-light text-gray-600 dark:text-gray-400"
+                    dangerouslySetInnerHTML={{ __html: item?.desc.substring(0,60) }}
+                />
                 <Link href={`/posts/${item.slug}`} className="border-b border-solid border-[crimson] w-max p-[2px_0px] ">Read More</Link>
             </div>
         </div>

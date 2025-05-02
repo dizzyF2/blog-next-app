@@ -39,12 +39,12 @@ async function Categories({className, withImage}:IProps) {
     return (
         <div className="flex flex-wrap justify-between gap-5 my-5 bg">
             {data.map((item: Item)=>(
-                <Link key={item._id} href={`/blog?cat=${item.title}`} className={`${categoryColors[item.title] || 'bg-gray-500'} group capitalize text-gray-900 hover:text-white ${className}`}>
-                    {withImage && (
-                        <Image src={item.img} alt={item.title} width={32} height={32} className=" object-cover rounded-[50%] group-hover:border group-hover:border-slate-400" />
-                    )}
-                        {item.title}
-                </Link>
+                    <Link key={item._id} href={`/blog?cat=${item.title}`} className={`${categoryColors[item.title] || 'bg-gray-500'} group capitalize text-gray-900 hover:text-white ${className}`}>
+                        {withImage && (
+                            <Image src={item.img} alt={item.title} width={32} height={32} className=" object-cover rounded-[50%] group-hover:border group-hover:border-slate-400" />
+                        )}
+                            {item.title}
+                    </Link>
             ))}
         </div>
     )
