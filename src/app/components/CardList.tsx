@@ -27,6 +27,7 @@ async function CardList({page, cat}: {page: number, cat: string}) {
     const {posts, count} = await getData(page, cat)
 
     const POST_PER_PAGE = 3
+    const totalPages = Math.max(1, Math.ceil(count / POST_PER_PAGE))
     const hasNext = POST_PER_PAGE * (page - 1) +  POST_PER_PAGE < count
     const hasPrev = POST_PER_PAGE * (page - 1) > 0
 
@@ -36,11 +37,15 @@ async function CardList({page, cat}: {page: number, cat: string}) {
                 <h1 className='text-2xl md:text-3xl font-bold m-[50px_0px]'>
                     Recent Posts
                 </h1>
-                {posts.map((item: Item)=>(
-                    <Card item={item} key={item._id}/>
-                ))}
+                {posts.length > 0 ? (
+                    posts.map((item: Item) => (
+                        <Card item={item} key={item._id} />
+                    ))
+                ) : (
+                    <p className="text-gray-600 place-self-center dark:text-gray-300 mb-10">No posts yet.</p>
+                )}
             </div>
-            <Pagination page={page} hasNext={hasNext} hasPrev={hasPrev} />
+            <Pagination page={page} hasNext={hasNext} hasPrev={hasPrev} totalPages={totalPages}/>
         </div>
     )
 }

@@ -98,37 +98,3 @@ export const POST = async (req: Request) => {
         );
     }
 };
-
-
-//CREATE POST WITH SUPABASE TRY 2
-// export const POST = async (req: Request) => {
-//     const session = await getAuthSession();  // Get session via NextAuth
-
-//     if (!session) {
-//         return new NextResponse(
-//         JSON.stringify({ message: "Not authenticated!" }),
-//         { status: 401 }
-//         );
-//     }
-
-//     try {
-//         const body = await req.json();
-//         const { image, ...postData } = body;
-
-//         const post = await prisma.post.create({
-//         data: {
-//             ...postData,
-//             userEmail: session.user?.email,
-//             img: image || null,
-//         },
-//         });
-
-//         return new NextResponse(JSON.stringify(post), { status: 200 });
-//     } catch (err) {
-//         console.error("Post creation error:", err);
-//         return new NextResponse(
-//         JSON.stringify({ message: "Something went wrong!" }),
-//         { status: 500 }
-//         );
-//     }
-// };

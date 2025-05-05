@@ -75,7 +75,7 @@ function Comments({postSlug}:{postSlug: string}) {
                             }
                             <div className="user-info flex items-center justify-center gap-0 md:gap-1 text-gray-500 dark:text-gray-400 mb-1">
                                 <span className="text-sm md:text-xl font-bold capitalize">{item.user.name} - </span>
-                                <span className="">{item.createdAt.toString()}</span>
+                                <span className="">{new Date(item.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
                             </div>
                         </div>
                         <div className="flex gap-1">

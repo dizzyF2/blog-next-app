@@ -3,13 +3,15 @@
 import { useEffect, useState } from "react"
 import "react-quill/dist/quill.bubble.css";
 import { Plus, ImageIcon, Upload, SquarePlay } from "lucide-react"
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import ReactQuill from "react-quill";
+import toast from "react-hot-toast";
 
 function Write() {
 
     const {status} = useSession();
+    const router = useRouter();
 
     const [open, setOpen] = useState(false)
     const [file, setFile] = useState<File | null>(null)
@@ -73,9 +75,19 @@ function Write() {
     
         // Handle success or error
         if (res.ok) {
-            console.log("Post created successfully!");
+            const data = await res.json();
+
+            toast.success("Post created successfully!");
+            setTitle("");
+            setValue("");
+            setCatSlug("");
+            setFile(null);
+            setMedia("");
+            setOpen(false);
+
+            router.push(`/posts/${data.slug}`);
         } else {
-            console.log("Error creating post");
+            toast.error("Error creating post \n please try again");
         }
     };
 

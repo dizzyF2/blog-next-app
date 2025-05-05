@@ -17,15 +17,15 @@ function MobileHeader() {
                 <ThemeSwitch/>
                 <Menu size={20} className='text-black dark:text-white cursor-pointer' onClick={()=>{setOpen(!open)}}/>
             </div>
-            <div className={
-                open 
-                ? 'fixed z-[999] right-0 top-0 w-[65%] sm:hidden h-screen bg-[#ecf0f3] dark:bg-[#161618] p-10 ease-in duration-500' 
-                : 'fixed right-[-100%] sm:hidden top-0 p-10 h-screen ease-in duration-500' 
-                }>
+            <div className={`
+                ${open 
+                    ? 'fixed z-[999] right-0 top-0 w-[65%] sm:hidden h-screen bg-[#ecf0f3] dark:bg-[#161618] p-10 ease-in duration-500' 
+                    : 'fixed right-[-100%] sm:hidden top-0 p-10 h-screen ease-in duration-500' }
+                `}>
                 <div className='flex w-full items-center justify-start'>
                     <div className='p-1 w-fit cursor-pointer' onClick={()=>{setOpen(!open)}}><X size={25}/></div>
                 </div>
-                <MobileNavLinks onclick={()=>{setOpen(false)}}/>
+                <MobileNavLinks/>
             </div>
         </div>
     )
