@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import { Providers } from "./providers/ThemeProviders";
 import AuthProvider from "./providers/AuthProvider";
 import { Toaster } from "react-hot-toast";
+import { Providers } from "./providers/ThemeProviders";
 
 
 const geistSans = localFont({
@@ -36,15 +34,9 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Providers>
-            <div className="m-0 flex flex-col justify-between">
-              <Header/>
-              <div className="main-Wrapper min-h-[45vh] my-10">
-                {children}
-              </div>
-              <Footer/>
-            </div>
-            <Toaster toastOptions={{style:{textAlign: "center"}}} />
-          </Providers>
+              {children}
+              <Toaster toastOptions={{style:{textAlign: "center"}}} />
+            </Providers>
         </AuthProvider>
       </body>
     </html>

@@ -1,18 +1,16 @@
 'use client'
 
-import Link from 'next/link'
 import ThemeSwitch from './ThemeSwitch'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import MobileNavLinks from './MobileNavLinks'
+import Logo from './Logo'
 
 function MobileHeader() {
     const [open, setOpen] = useState(false);
     return (
         <div className='flex items-center justify-between sm:hidden p-5'>
-            <h1 className="text-2xl font-bold">
-                <Link href={"/"}>Blog</Link>
-            </h1>
+            <Logo />
             <div className='flex gap-2 items-center '>
                 <ThemeSwitch/>
                 <Menu size={20} className='text-black dark:text-white cursor-pointer' onClick={()=>{setOpen(!open)}}/>

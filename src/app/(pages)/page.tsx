@@ -1,7 +1,7 @@
-import CardList from "./components/CardList";
-import Hero from "./components/Hero";
-import MenuList from "./components/MenuList";
-import PopularCategories from "./components/PopularCategories";
+import CardList from "../components/CardList";
+import Hero from "../components/Hero";
+import MenuList from "../components/MenuList";
+import PopularCategories from "../components/PopularCategories";
 
 
 export default function Home({searchParams}:{ searchParams: { page: string, cat: string } }) {
