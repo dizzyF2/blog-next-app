@@ -93,22 +93,22 @@ function Write() {
 
     return (
     <div>
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col-reverse w-fit flex-wrap xl:flex-row xl:flex-nowrap justify-between items-center">
             <input 
                 type="text" 
-                placeholder="Title" 
+                placeholder="Title"
                 className="p-12 text-6xl border-none outline-none bg-transparent"
                 onChange={e => setTitle(e.target.value)}
             />
-            <select className="block w-full bg-transparent border border-gray-700 dark:border-white text-gray-700 dark:text-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-black" 
+            <select className=" block w-[20%] xl:w-full self-start bg-transparent border border-gray-700 dark:border-white capitalize text-gray-700 dark:text-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-black" 
                     onChange={(e) => setCatSlug(e.target.value)}
             >
-                <option value="style">style</option>
-                <option value="fashion">fashion</option>
-                <option value="food">food</option>
-                <option value="culture">culture</option>
-                <option value="travel">travel</option>
-                <option value="coding">coding</option>
+                <option className="dark:text-black font-medium" value="style">style</option>
+                <option className="dark:text-black font-medium" value="fashion">fashion</option>
+                <option className="dark:text-black font-medium" value="food">food</option>
+                <option className="dark:text-black font-medium" value="culture">culture</option>
+                <option className="dark:text-black font-medium" value="travel">travel</option>
+                <option className="dark:text-black font-medium" value="coding">coding</option>
             </select>
         </div>
         <div className="editor-container relative flex gap-5 h-[700px]">
@@ -137,19 +137,19 @@ function Write() {
                 </div>
             )}
             <ReactQuill
-                className="bg-transparent w-full resize-none outline-none"
+                className="bg-transparent w-full resize-none outline-none dark:placeholder:text-white"
                 theme="bubble"
                 value={value}
                 onChange={setValue}
                 placeholder="Tell your story..."
             />
         </div>
-            <button 
-                className="absolute top-[70px] right-[20px] p-[10px_20px] border-none bg-[#1a8917] hover:bg-[#2e922e] text-white rounded-3xl"
-                onClick={handleSubmit}
-            >
+        <button 
+            className=" mt-3 absolute top-[70px] right-[20px] p-[10px_20px] border-none bg-[#1a8917] hover:bg-[#2e922e] text-white rounded-3xl"
+            onClick={handleSubmit}
+        >
             Publish
-            </button>
+        </button>
     </div>
     )
 }

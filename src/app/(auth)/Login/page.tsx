@@ -26,7 +26,7 @@ function Login() {
             <div className="flex flex-col items-center justify-center w-full md:w-1/2 px-8 py-12">
                 <div className="w-full max-w-md space-y-8">
                     <div className="flex justify-center">
-                        <Logo isAuth={true}/>
+                        <Logo isTextBlack={true}/>
                     </div>
         
                     {/* Heading */}

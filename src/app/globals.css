@@ -42,6 +42,15 @@ body {
   padding-right: 80px;
 }
 
+.ql-editor.ql-blank::before {
+  content: attr(data-placeholder);
+  color: #9ca3af; /* Default placeholder color */
+}
+
+.dark .ql-editor.ql-blank::before {
+  color: #ffffff;
+}
+
 @media screen and (max-width: 1536px) {
   .main-Wrapper {
     max-width: 1366px;
@@ -68,4 +77,5 @@ body {
   .main-Wrapper {
     max-width: 475px;
   }
+
 }

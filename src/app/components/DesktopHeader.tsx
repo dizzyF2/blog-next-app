@@ -15,7 +15,7 @@ function DesktopHeader() {
             <Logo />
             <div className="capitalize flex gap-7 text-sm">
             <Link href={"/"}>Home</Link>
-            <Link href={"/"}>Content</Link>
+            <Link href={"/"}>Contents</Link>
             {status === "authenticated" && <Link href={"/write"}>write</Link>}
             <Link href={"/"}>About</Link>
             </div>

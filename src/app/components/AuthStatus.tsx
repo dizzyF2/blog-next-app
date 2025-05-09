@@ -1,5 +1,5 @@
 'use client'
-import {LibraryBig, LogOut } from "lucide-react";
+import {LibraryBig, LogOut, Pencil } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,7 +30,7 @@ function AuthStatus() {
     return (
         <div className="self-center p-[5px_12px] cursor-pointer rounded-full bg-transparent font-medium  text-black  dark:text-white w-max hover:text-black hover:dark:text-white">
             {status === "unauthenticated" ? (
-                <div className="border rounded-full p-2 text-black \  dark:text-white dark:hover:text-black border-black dark:border-gray-400 hover:border-transparent dark:hover:border-transparent hover:bg-gray-200">
+                <div className="border rounded-full p-2 text-black text-sm  dark:text-white dark:hover:text-black border-black dark:border-gray-400 hover:border-transparent dark:hover:border-transparent hover:bg-gray-300 ">
                     <Link href="/Login">
                         Sign in
                     </Link>
@@ -59,10 +59,14 @@ function AuthStatus() {
                                 <p className="text-sm font-medium text-gray-900">{data?.user?.name}</p>
                                 <p className="text-xs text-gray-500">{data?.user?.email}</p>
                             </div>
-                            <nav className="py-2">
+                            <nav className="py-2 capitalize">
+                                <Link href="/write" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-300">
+                                    <Pencil className="mr-3 h-5 w-5 text-gray-400" />
+                                    <span>new post</span>
+                                </Link>
                                 <Link href="/" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-300">
                                     <LibraryBig className="mr-3 h-5 w-5 text-gray-400" />
-                                    <span>my Posts</span>
+                                    <span>my posts</span>
                                 </Link>
                                 <div onClick={()=>signOut()} className="flex items-center cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-red-100">
                                     <LogOut className="mr-3 h-5 w-5 text-red-600" />
