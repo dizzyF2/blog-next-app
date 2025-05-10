@@ -5,8 +5,6 @@ import GithubProvider from "next-auth/providers/github"
 import NextAuth, { getServerSession, type AuthOptions } from "next-auth"
 
 
-
-
 export const authOptions: AuthOptions = {
     adapter: PrismaAdapter(prisma),
     providers: [
