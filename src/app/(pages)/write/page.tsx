@@ -1,12 +1,14 @@
 'use client'
 
 import { useEffect, useState } from "react"
+import dynamic from "next/dynamic";
 import "react-quill/dist/quill.bubble.css";
 import { Plus, ImageIcon, Upload, SquarePlay } from "lucide-react"
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import ReactQuill from "react-quill";
 import toast from "react-hot-toast";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 function Write() {
 
@@ -21,6 +23,12 @@ function Write() {
     const [catSlug, setCatSlug] = useState("");
 
     const { data: session } = useSession();
+
+    useEffect(() => {
+        if (status === "unauthenticated") {
+            router.push("/");
+        }
+    }, [status, router]);
 
     useEffect(()=>{
         const upload = async () => {
@@ -43,9 +51,6 @@ function Write() {
         return <div>Loading...</div>
     }
     
-    if(status === "unauthenticated"){
-        redirect("/")
-    }
 
     const slugify = (str: string) => {
         return str
