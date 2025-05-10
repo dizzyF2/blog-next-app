@@ -13,7 +13,7 @@ const getData = async (slug: string) =>{
 }
 
 
-async function page({params}) {
+async function page({params}: { params: { slug: string }}) {
 
     const { slug } = params
     const data = await getData(slug)
