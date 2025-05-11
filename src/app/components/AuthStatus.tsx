@@ -1,5 +1,5 @@
 'use client'
-import {LibraryBig, LogOut, Pencil } from "lucide-react";
+import {LibraryBig, LogOut, Pencil, User } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,22 +37,26 @@ function AuthStatus() {
                 </div>
             ) : (
                 <div className="cursor-default" ref={dropdownRef}>
-                    <div
-                        onClick={toggleDropdown}
-                        className="relative size-10 overflow-hidden border-2 border-gray-200 hover:border-gray-400 dark:border-gray-400 dark:hover:border-gray-700 rounded-full cursor-pointer bg-gray-200 hover:bg-gray-300 focus:outline-none"
-                        aria-expanded={isOpen}
-                        aria-haspopup="true"
-                    >
-                        
-                        <Image
-                            src={data?.user?.image || "" }
-                            alt="User profile"
-                            fill={true}
-                            className="absolute object-cover"
-                            priority
-                        />
-                        {/* <span className="sr-only">Open profile menu</span> */}
-                    </div>
+                    {data?.user?.image? (
+                        <div
+                            onClick={toggleDropdown}
+                            className="relative size-10 overflow-hidden border-2 border-gray-200 hover:border-gray-400 dark:border-gray-400 dark:hover:border-gray-700 rounded-full cursor-pointer bg-gray-200 hover:bg-gray-300 focus:outline-none"
+                            aria-expanded={isOpen}
+                            aria-haspopup="true"
+                        >
+                            <Image
+                                src={data?.user?.image}
+                                alt="User profile"
+                                fill={true}
+                                className="absolute object-cover"
+                                priority
+                            />
+                        </div>
+                    ) : (
+                        <div className="flex items-center justify-center w-full h-full bg-gray-200 rounded-full">
+                            <User className="size-8 text-gray-500" />
+                        </div>
+                    )}
                     {isOpen && (
                         <div className="absolute right-10 md:top-12 md:right-28 mt-2 w-56 bg-white rounded-md shadow-lg z-10">
                             <div className="p-4 border-b border-gray-200">
@@ -68,10 +72,10 @@ function AuthStatus() {
                                     <LibraryBig className="mr-3 h-5 w-5 text-gray-400" />
                                     <span>my posts</span>
                                 </Link>
-                                <div onClick={()=>signOut()} className="flex items-center cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-red-100">
+                                <button onClick={()=>signOut()} className="flex items-center w-full cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-red-100">
                                     <LogOut className="mr-3 h-5 w-5 text-red-600" />
                                     <span className="text-red-400">SignOut</span>
-                                </div>
+                                </button>
                             </nav>
                         </div>
                     )}
