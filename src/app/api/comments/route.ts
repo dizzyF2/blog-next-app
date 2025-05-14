@@ -1,6 +1,6 @@
 import { prisma } from "@/utils/connect"
 import { NextResponse } from "next/server"
-import { getAuthSession } from "../../../../lib/auth"
+import { getAuthSession } from "../../../../auth"
 
 //GET ALL COMMENTS FROM A SPECIFIC POST
 export const GET = async (req: Request) =>{

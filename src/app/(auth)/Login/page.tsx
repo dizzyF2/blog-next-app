@@ -2,7 +2,7 @@
 
 import LoginForm from '@/app/components/LoginForm';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../../../../lib/auth';
+import { authOptions } from '../../../../auth';
 import { redirect } from 'next/navigation';
 
 async function Login() {

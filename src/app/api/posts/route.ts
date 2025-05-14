@@ -1,6 +1,6 @@
 import { prisma } from "@/utils/connect"
 import { NextResponse } from "next/server"
-import { getAuthSession } from "../../../../lib/auth"
+import { getAuthSession } from "../../../../auth"
 import { createSupabaseServerClient } from "@/utils/supabase/server"
 
 export const GET = async (req: Request) =>{

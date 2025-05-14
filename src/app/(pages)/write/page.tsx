@@ -37,9 +37,9 @@ function Write() {
             const reader = new FileReader();
             reader.onloadend = () => {
                 const base64Image = reader.result as string;
-                setMedia(base64Image); // Set media as base64 string
+                setMedia(base64Image);
             };
-            reader.readAsDataURL(file); // Convert file to base64
+            reader.readAsDataURL(file);
         };
 
         if (file) {
@@ -72,13 +72,12 @@ function Write() {
             body: JSON.stringify({
                 title,
                 desc: value,
-                imageBase64: media, // base64 image data
+                imageBase64: media,
                 slug: slugify(title),
                 catSlug: catSlug || "style"
             })
         });
     
-        // Handle success or error
         if (res.ok) {
             const data = await res.json();
 
