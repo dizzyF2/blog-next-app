@@ -54,11 +54,11 @@ function Write() {
 
     const slugify = (str: string) => {
         return str
-        .toLowerCase()
-        .trim()
-        .replace(/[^\w\s-]/g, "")
-        .replace(/[\s_-]+/g, "-")
-        .replace(/^-+|-+$/g, "");
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-zA-Z0-9\u0600-\u06FF\s-]/g, "") // allow Arabic letters
+            .replace(/[\s_-]+/g, "-")
+            .replace(/^-+|-+$/g, "");
     };
 
     const handleSubmit = async () => {
