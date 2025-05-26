@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 
 function Write() {
 
@@ -56,7 +56,7 @@ function Write() {
         return str
             .toLowerCase()
             .trim()
-            .replace(/[^a-zA-Z0-9\u0600-\u06FF\s-]/g, "") // allow Arabic letters
+            .replace(/[^a-zA-Z0-9\u0600-\u06FF\s-]/g, "")
             .replace(/[\s_-]+/g, "-")
             .replace(/^-+|-+$/g, "");
     };

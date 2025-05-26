@@ -15,7 +15,17 @@ const getData = async (slug: string) =>{
 
 async function page({params}: { params: { slug: string }}) {
 
+    const slugify = (str: string) => {
+        return str
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-zA-Z0-9\u0600-\u06FF\s-]/g, "")
+            .replace(/[\s_-]+/g, "-")
+            .replace(/^-+|-+$/g, "");
+    };
+
     const { slug } = params
+    const saveSlug = slugify(slug)
     const data = await getData(slug)
     return (
         <div className="my-20 flex flex-row gap-20">
@@ -42,7 +52,7 @@ async function page({params}: { params: { slug: string }}) {
                         }
                     </div>
                         <div className="discription mt-14 text-lg font-light" dangerouslySetInnerHTML={{__html: data?.desc}}/>
-                        <Comments postSlug={slug} />
+                        <Comments postSlug={saveSlug} />
                 </div>
                 <MenuList/>
         </div>

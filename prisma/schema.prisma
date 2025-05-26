@@ -46,6 +46,7 @@ model User {
     sessions      Session[]
     Post          Post[]
     Comment       Comment[]
+    views         View[]
 }
 
 model VerificationToken {
@@ -77,6 +78,7 @@ model Post {
     userEmail String
     user      User      @relation(fields: [userEmail], references: [email])
     comments  Comment[]
+    viewedBy  View[]
 }
 
 model Comment {
@@ -87,4 +89,16 @@ model Comment {
     user      User     @relation(fields: [userEmail], references: [email])
     postSlug  String
     post      Post     @relation(fields: [postSlug], references: [slug])
+}
+
+model View {
+    id        String   @id @default(cuid()) @map("_id")
+    userId    String
+    postId    String
+    createdAt DateTime @default(now())
+
+    user      User     @relation(fields: [userId], references: [id])
+    post      Post     @relation(fields: [postId], references: [id])
+
+    @@unique([userId, postId])
 }
